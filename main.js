@@ -48,13 +48,38 @@ function createPanel() {
         </div>
     `;
     
-    // Add event listeners for delete button if needed
+    // Add event listeners for buttons
     const deleteBtn = panel.querySelector('.delete-btn');
     deleteBtn.addEventListener('click', () => {
         panel.remove();
-        // Option to renumber panels or let them be
+    });
+
+    const showBtn = panel.querySelector('.btn-show');
+    const hideBtn = panel.querySelector('.btn-hide');
+    const clearBtn = panel.querySelector('.btn-clear');
+    const inputs = panel.querySelectorAll('input[type="text"]');
+    const indicator = panel.querySelector('.panel-indicator');
+    const advancedSettingsBtn = panel.querySelector('.advanced-settings');
+
+    showBtn.addEventListener('click', () => {
+        indicator.style.backgroundColor = '#00c853'; // Green for showing
+        console.log(`Showing panel ${panelCount}:`, inputs[0].value, inputs[1].value);
+    });
+
+    hideBtn.addEventListener('click', () => {
+        indicator.style.backgroundColor = '#ff1744'; // Red for hidden
+        console.log(`Hiding panel ${panelCount}`);
+    });
+
+    clearBtn.addEventListener('click', () => {
+        inputs.forEach(input => input.value = '');
+        indicator.style.backgroundColor = '#9aa0a6'; // Back to neutral
     });
     
+    advancedSettingsBtn.addEventListener('click', () => {
+        alert(`Configurações avançadas do Painel ${panelCount} abertas!`);
+    });
+
     panelsContainer.appendChild(panel);
 }
 
@@ -64,3 +89,18 @@ for (let i = 0; i < 4; i++) {
 }
 
 addPanelBtn.addEventListener('click', createPanel);
+
+const startSequenceBtn = document.getElementById('start-sequence-btn');
+if (startSequenceBtn) {
+    startSequenceBtn.addEventListener('click', () => {
+        console.log('Starting auto sequence...');
+        alert('Auto sequence started!');
+    });
+}
+
+const globalSettingsBtn = document.querySelector('.global-settings');
+if (globalSettingsBtn) {
+    globalSettingsBtn.addEventListener('click', () => {
+        alert('Configurações Globais abertas!');
+    });
+}
