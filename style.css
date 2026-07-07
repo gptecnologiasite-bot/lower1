@@ -1,0 +1,299 @@
+:root {
+    --bg-main: #242424;
+    --bg-card: #333333;
+    --bg-global: #3a2a4b;
+    --text-primary: #ffffff;
+    --text-secondary: #9aa0a6;
+    --border-color: #444;
+    --primary-color: #8a2be2; /* Purple */
+    --success-color: #00c853; /* Green */
+    --danger-color: #ff1744;  /* Red */
+    --gray-btn: #5f6368;
+    --orange-btn: #ff6d00;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #8b93ff;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.global-settings {
+    background-color: var(--bg-global);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.global-settings span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #e6e6fa;
+}
+
+.panels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.panel-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.panel-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.drag-handle {
+    color: var(--text-secondary);
+    cursor: grab;
+}
+
+.panel-number {
+    background-color: var(--primary-color);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.panel-title-label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.panel-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-secondary);
+    border-radius: 50%;
+}
+
+.panel-header-right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon-btn {
+    background-color: var(--gray-btn);
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.icon-btn:hover {
+    filter: brightness(1.2);
+}
+
+.delete-btn {
+    border: 1px solid var(--danger-color);
+    background-color: transparent;
+    color: var(--danger-color);
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    margin-left: 5px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #666;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.input-group {
+    margin-bottom: 12px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+}
+
+.input-group input {
+    width: 100%;
+    background-color: #444;
+    border: 1px solid #555;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.input-group input::placeholder {
+    color: #888;
+}
+
+.action-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.action-row button {
+    flex: 1;
+    border: none;
+    padding: 10px 0;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-show {
+    background-color: var(--success-color);
+}
+
+.btn-hide {
+    background-color: var(--danger-color);
+}
+
+.btn-clear {
+    background-color: var(--gray-btn);
+}
+
+.action-row button:hover {
+    filter: brightness(1.1);
+}
+
+.advanced-settings {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.btn-add, .btn-start {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 250px;
+}
+
+.btn-add {
+    background-color: var(--primary-color);
+}
+
+.btn-start {
+    background-color: var(--orange-btn);
+}
+
+.btn-add:hover, .btn-start:hover {
+    filter: brightness(1.1);
+}
