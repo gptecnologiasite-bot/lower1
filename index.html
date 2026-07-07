@@ -14,9 +14,60 @@
             <h1>OBS Lower Thirds Control</h1>
         </header>
 
-        <div class="global-settings">
+        <div class="global-settings" id="global-settings-toggle">
             <span>Global Settings (Apply to All)</span>
             <i class="fa-solid fa-caret-down"></i>
+        </div>
+        
+        <div class="global-settings-panel" id="global-settings-panel" style="display: none;">
+            <div class="settings-grid">
+                <div class="input-group full-width">
+                    <label>Auto Sequence Interval (sec)</label>
+                    <input type="number" value="2">
+                </div>
+                <div class="input-group">
+                    <label>Transition</label>
+                    <select><option>Slide</option><option>Fade</option></select>
+                </div>
+                <div class="input-group">
+                    <label>Display Duration (sec)</label>
+                    <input type="number" value="5">
+                </div>
+                <div class="input-group">
+                    <label>Animation In (sec)</label>
+                    <input type="number" value="0.8" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Animation Out (sec)</label>
+                    <input type="number" value="0.8" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Font Family</label>
+                    <select><option>Montserrat</option><option>Inter</option></select>
+                </div>
+                <div class="input-group">
+                    <label>Name Font Size (px)</label>
+                    <input type="number" value="32">
+                </div>
+                <div class="input-group">
+                    <label>Title Font Size (px)</label>
+                    <input type="number" value="20">
+                </div>
+                <div class="input-group">
+                    <label>Background Style</label>
+                    <select><option>Blue-Purple Gradient</option><option>Solid Black</option></select>
+                </div>
+                <div class="input-group">
+                    <label>Transparency (%)</label>
+                    <input type="number" value="95">
+                </div>
+                <div class="input-group checkbox-group align-bottom">
+                    <label>
+                        <input type="checkbox" checked> Typewriter Effect
+                    </label>
+                </div>
+            </div>
+            <button class="btn-apply-all">APPLY TO ALL LOWER THIRDS</button>
         </div>
 
         <div class="panels-grid" id="panels-container">

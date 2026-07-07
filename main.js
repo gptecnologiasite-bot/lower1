@@ -46,6 +46,60 @@ function createPanel() {
         <div class="advanced-settings">
             <i class="fa-solid fa-gear"></i> Advanced Settings
         </div>
+
+        <div class="advanced-settings-panel" style="display: none;">
+            <div class="settings-grid-small">
+                <div class="input-group">
+                    <label>Transition</label>
+                    <select><option>Slide</option><option>Fade</option></select>
+                </div>
+                <div class="input-group">
+                    <label>Duration (s)</label>
+                    <input type="number" value="5">
+                </div>
+                <div class="input-group">
+                    <label>Anim In (s)</label>
+                    <input type="number" value="0.8" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Anim Out (s)</label>
+                    <input type="number" value="0.8" step="0.1">
+                </div>
+                <div class="input-group full-width">
+                    <label>Font Family</label>
+                    <select><option>Montserrat</option><option>Inter</option></select>
+                </div>
+                <div class="input-group">
+                    <label>Name Size (px)</label>
+                    <input type="number" value="32">
+                </div>
+                <div class="input-group">
+                    <label>Title Size (px)</label>
+                    <input type="number" value="20">
+                </div>
+                <div class="input-group">
+                    <label>Name Text Color</label>
+                    <input type="color" value="#ffffff">
+                </div>
+                <div class="input-group">
+                    <label>Title Text Color</label>
+                    <input type="color" value="#ffa500">
+                </div>
+                <div class="input-group full-width">
+                    <label>Background Style</label>
+                    <select><option>Blue-Purple Gradient</option><option>Solid Black</option></select>
+                </div>
+                <div class="input-group full-width">
+                    <label>Transparency: <span class="transparency-val">95</span>%</label>
+                    <input type="range" min="0" max="100" value="95" class="slider-range">
+                </div>
+                <div class="input-group full-width checkbox-group">
+                    <label>
+                        <input type="checkbox" checked> Typewriter Effect
+                    </label>
+                </div>
+            </div>
+        </div>
     `;
     
     // Add event listeners for buttons
@@ -60,6 +114,15 @@ function createPanel() {
     const inputs = panel.querySelectorAll('input[type="text"]');
     const indicator = panel.querySelector('.panel-indicator');
     const advancedSettingsBtn = panel.querySelector('.advanced-settings');
+    const advancedSettingsPanel = panel.querySelector('.advanced-settings-panel');
+    const transparencyRange = panel.querySelector('.slider-range');
+    const transparencyVal = panel.querySelector('.transparency-val');
+
+    if (transparencyRange && transparencyVal) {
+        transparencyRange.addEventListener('input', (e) => {
+            transparencyVal.textContent = e.target.value;
+        });
+    }
 
     showBtn.addEventListener('click', () => {
         indicator.style.backgroundColor = '#00c853'; // Green for showing
@@ -77,7 +140,11 @@ function createPanel() {
     });
     
     advancedSettingsBtn.addEventListener('click', () => {
-        alert(`Configurações avançadas do Painel ${panelCount} abertas!`);
+        if (advancedSettingsPanel.style.display === 'none') {
+            advancedSettingsPanel.style.display = 'block';
+        } else {
+            advancedSettingsPanel.style.display = 'none';
+        }
     });
 
     panelsContainer.appendChild(panel);
@@ -98,9 +165,14 @@ if (startSequenceBtn) {
     });
 }
 
-const globalSettingsBtn = document.querySelector('.global-settings');
-if (globalSettingsBtn) {
+const globalSettingsBtn = document.getElementById('global-settings-toggle');
+const globalSettingsPanel = document.getElementById('global-settings-panel');
+if (globalSettingsBtn && globalSettingsPanel) {
     globalSettingsBtn.addEventListener('click', () => {
-        alert('Configurações Globais abertas!');
+        if (globalSettingsPanel.style.display === 'none') {
+            globalSettingsPanel.style.display = 'block';
+        } else {
+            globalSettingsPanel.style.display = 'none';
+        }
     });
 }

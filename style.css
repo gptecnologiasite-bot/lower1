@@ -297,3 +297,107 @@ input:checked + .slider:before {
 .btn-add:hover, .btn-start:hover {
     filter: brightness(1.1);
 }
+
+/* Settings Panels Styling */
+.global-settings-panel, .advanced-settings-panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -20px;
+}
+
+.advanced-settings-panel {
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #2b2b2b;
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.settings-grid-small {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.input-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.input-group select {
+    width: 100%;
+    background-color: #444;
+    border: 1px solid #555;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    appearance: none;
+}
+
+.input-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.input-group input[type="color"] {
+    width: 100%;
+    height: 35px;
+    padding: 2px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #444;
+    cursor: pointer;
+}
+
+.input-group input[type="range"] {
+    width: 100%;
+    accent-color: #00a8ff;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.align-bottom {
+    display: flex;
+    align-items: flex-end;
+}
+
+.btn-apply-all {
+    width: 100%;
+    background-color: #b056ff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.btn-apply-all:hover {
+    background-color: #c070ff;
+}
